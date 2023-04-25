@@ -1,4 +1,5 @@
 # Zumo-Groep-2.4
+TEST
 
 Welkom bij Zumo-Groep-2.4!
 
