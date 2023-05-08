@@ -2,13 +2,15 @@
 #include <Zumo32U4.h>
 
 lijn::lijn() {
-  lineSensors.initThreeSensors();
+  lineSensors.initThreeSensors(); // Initaliseer de klasse 
 }
 
 lijn::~lijn() {
 
 }
 
+// Lees de waardes uit van de sensoren.
+// De waardes worden in lineSensorValues gezet en teruggegeven. 
 int lijn::lees_waarde() {
   lineSensors.read(lineSensorValues, QTR_EMITTERS_ON);
   return lineSensorValues;
