@@ -14,10 +14,10 @@ void setup() {
 
 
 void loop() {
-  static uint16_t lastSampleTime = 0;
-  if ((uint16_t)(millis() - lastSampleTime) >= 100)
+  int tijd = 0;
+  if ((millis() - tijd) >= 100)
   {
     lastSampleTime = millis();
     Lijn.print_waardes();
   }
-}
+s}
