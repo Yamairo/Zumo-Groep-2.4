@@ -18,6 +18,49 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "a0881c787c5c504a",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.2.7"
+              }
+            }
+          },
+          {
+            "id": "b5b3118276fbd300",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Class diagram.md",
+                "mode": "source",
+                "source": true
+              }
+            },
+            "group": "ba1652c7d3bd6a5d"
+          }
+        ],
+        "currentTab": 2
+      },
+      {
+        "id": "2cc5bf3b8522b41a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "679ea0a537932a78",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Class diagram.md",
+                "mode": "preview",
+                "source": false
+              }
+            },
+            "group": "ba1652c7d3bd6a5d"
           }
         ]
       }
@@ -64,6 +107,14 @@
               "type": "starred",
               "state": {}
             }
+          },
+          {
+            "id": "5e70be025649889a",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
           }
         ]
       }
@@ -85,7 +136,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "README.md",
+                "file": "Class diagram.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +153,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "README.md",
+                "file": "Class diagram.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +176,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "README.md"
+                "file": "Class diagram.md"
               }
             }
           }
@@ -146,6 +197,9 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "60c07df1cb20ba82",
-  "lastOpenFiles": []
+  "active": "b5b3118276fbd300",
+  "lastOpenFiles": [
+    "README.md",
+    "Class diagram.md"
+  ]
 }
