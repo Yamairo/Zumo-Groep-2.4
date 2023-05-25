@@ -17,7 +17,7 @@ void loop() {
   int tijd = 0;
   if ((millis() - tijd) >= 100)
   {
-    lastSampleTime = millis();
+    tijd = millis();
     Lijn.print_waardes();
   }
-s}
+}
