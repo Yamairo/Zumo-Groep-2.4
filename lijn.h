@@ -1,17 +1,18 @@
 #include <Zumo32U4.h>
+#include <Zumo32U4LineSensors.h>
+#include <Zumo32U4Motors.h>
 class lijn
 {
-private:
-        Zumo32U4LineSensors lineSensors;
-        // TODO: Offsets invullen
-        const int SENSOR_LINKS_OFFSET  = 0;
-        const int SENSOR_RECHTS_OFFSET = 0;
-        const int SENSOR_MIDDEN_OFFSET = 0;
-public:
+  private:
+    Zumo32U4LineSensors lineSensors;
+    Zumo32U4Motors motors;
+  public:
     lijn();
     ~lijn();
-    int lees_waarde(bool kalibreer);
-    void print_ruwe_waardes();
+    int lees_waarde();
+    void print_waardes();
     int lineSensorValues[3];
+    void calibrate_test();
+    
 
 };

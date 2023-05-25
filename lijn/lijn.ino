@@ -8,8 +8,12 @@ lijn Lijn;
 
 
 void setup() {
-
+  Zumo32U4Motors motors;
   Serial.begin(9600);
+  while (!Serial.available()) {
+    delay(1);
+  }
+  Lijn.calibrate_test();
 }
 
 
