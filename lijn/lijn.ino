@@ -20,4 +20,4 @@ void loop() {
     lastSampleTime = millis();
     Lijn.print_waardes();
   }
-s}
+}
