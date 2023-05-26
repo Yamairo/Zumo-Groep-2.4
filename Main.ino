@@ -1,6 +1,6 @@
 #include "Motor.h"
 #include "Accelerometer.h"
-
+/*
 Motor motor;
 Accelerometer accel;
 
@@ -19,4 +19,4 @@ void loop() {
     ledRed(0);
     motor.stop();
   }
-}
+}*/

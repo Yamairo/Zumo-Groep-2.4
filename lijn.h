@@ -1,6 +1,12 @@
+#ifndef LIJNSENSOR
+#define LIJNSENSOR
+
 #include <Zumo32U4.h>
 #include <Zumo32U4LineSensors.h>
 #include <Zumo32U4Motors.h>
+
+#pragma once 
+
 class lijn
 {
   private:
@@ -16,3 +22,4 @@ class lijn
     
 
 };
+#endif

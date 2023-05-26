@@ -26,12 +26,10 @@ void lijn::calibrate_test() {
     {
       motors.setSpeeds(200, -200);
     }
-    Serial.println("Brrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr!");
+    Serial.println("Kaliberen!");
     lineSensors.calibrate(QTR_EMITTERS_ON);
   }
   motors.setSpeeds(0, 0);
-  lineSensors.read(lineSensorValues, QTR_EMITTERS_ON);
-
 
 }
 
@@ -39,8 +37,8 @@ void lijn::calibrate_test() {
 // De waardes worden in lineSensorValues gezet en teruggegeven.
 int lijn::lees_waarde() {  motors.setSpeeds(0, 0);
 
-  lineSensors.read(lineSensorValues, QTR_EMITTERS_ON);
-  //lineSensors.readCalibrated(lineSensorValues, QTR_EMITTERS_ON);
+  //lineSensors.read(lineSensorValues, QTR_EMITTERS_ON);
+  lineSensors.readCalibrated(lineSensorValues, QTR_EMITTERS_ON);
   return lineSensorValues;
 }
 
@@ -48,7 +46,7 @@ int lijn::lees_waarde() {  motors.setSpeeds(0, 0);
 
 // Dit is een debug/test dingetje, niet voor gebruik in het uitendelijke ontwerp
 void lijn::print_waardes() {
-  lineSensors.read(lineSensorValues, QTR_EMITTERS_ON);
+  lineSensors.readCalibrated(lineSensorValues, QTR_EMITTERS_ON);
   Serial.print("SL: ");
   Serial.print(lineSensorValues[0]);
   Serial.print(",");

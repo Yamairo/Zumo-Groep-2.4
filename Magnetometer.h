@@ -1,7 +1,7 @@
 #ifndef MAG_H
 #define MAG_H 
 
-#include <Wire.h.
+#include <Wire.h>
 #include <Zumo32U4.h>
 
 class Magnetometer {
@@ -15,4 +15,6 @@ class Magnetometer {
     int x0;
     int y0;
     int z0;
-}
+};
+
+#endif

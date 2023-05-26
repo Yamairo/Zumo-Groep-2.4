@@ -1,4 +1,4 @@
-/!*
+/*!
 Dit voorbeeld leest de waarden van de magnetometer op de ZUMO 32U4,
 en print deze waarden op de seriele monitor.
 
@@ -21,11 +21,11 @@ void Magnetometer::init() {
   Wire.begin();
 
   //imu initialiseren
-  if ( !imu.init() ) {
+  if (!imu.init()) {
 
     // Kompas werdt niet gedetecteerd.
-    ledRed(1);  // rode led aan
-    while(true) {  // loop blijft aan
+    ledRed(1);      // rode led aan
+    while (true) {  // loop blijft aan
       Serial.println(F("Failed to initialize IMU sensors."));
       delay(100);
     }
@@ -56,9 +56,9 @@ bool Magnetometer::check() {
   /*
   */
   // Wacht tot dat magData beschikbaar is, anders wacht 100 ms.
-  while ( !imu.magDataReady() ) {
+  while (!imu.magDataReady()) {
     delay(100);
-    return True
+    return true;
   }
 }
 
@@ -67,16 +67,14 @@ void Magnetometer::geefWaardes() {
   /*!
 
   */
-  
-  if(Magnetometer.check())
-  {
-       // Meet magData
+  if (check()) {
+    // Meet magData
     imu.readMag();
 
     // Weergeeft de data op de serialdisplay.
     snprintf_P(report, sizeof(report),
-      PSTR("M: %6d %6d %6d"),
-      imu.m.x, imu.m.y, imu.m.z);  // imu.m.x - x0, imu.m.y - y0, imu.m.z - z0 als de kalibratie gebruikt wordt.
+               PSTR("M: %6d %6d %6d"),
+               imu.m.x, imu.m.y, imu.m.z);  // imu.m.x - x0, imu.m.y - y0, imu.m.z - z0 als de kalibratie gebruikt wordt.
     Serial.println(report);
   }
   delay(1000);

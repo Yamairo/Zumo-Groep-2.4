@@ -1,13 +1,13 @@
-#include "PROX.h"
+#include "prox.h"
 #include <Zumo32U4.h>
 
-prox::prox() {
-    ProximitySensors.initThreeSensors();
+Prox::Prox() {
+    proximitySensors.initThreeSensors();
 }
 
 //leest sensoren uit 
-int prox::lees_prox(){
-    ProximitySensors.read(ProximitySensorValues);
+int Prox::lees_prox(bool calibreer){
+    proximitySensors.read();
     if (calibreer){
         ProximitySensorValues[0] = ProximitySensorValues[0] + SENSOR_LINKS_OFFSET;
         ProximitySensorValues[1] = ProximitySensorValues[1] + SENSOR_MIDDEN_OFFSET;

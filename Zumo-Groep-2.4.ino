@@ -4,8 +4,8 @@
 #include "lijn.h"
 
 
-//lijn Lijn;
-/*
+lijn Lijn;
+
 
 void setup() {
   Serial.begin(9600);
@@ -18,9 +18,8 @@ void setup() {
 
 void loop() {
   int tijd = 0;
-  if ((millis() - tijd) >= 100)
-  {
+  if ((millis() - tijd) >= 100) {
     tijd = millis();
     Lijn.print_waardes();
   }
-}*/
+}
