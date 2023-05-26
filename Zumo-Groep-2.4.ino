@@ -1,18 +1,23 @@
-#include <Wire.h>
-#include <Zumo32U4.h>
-#include <Zumo32U4LineSensors.h>
+#include "Motor.h"
+#include "Accelerometer.h"
+#include "Magnetometer.h"
 #include "lijn.h"
 
-
+Accelerometer accel;
+Motor motor;
+Magnetometer magnet;
 lijn Lijn;
+Zumo32U4ButtonB Knop;
 
-
+bool buttonPress = Knop.getSingleDebouncedPress();
 void setup() {
   Serial.begin(9600);
-  while (!Serial.available()) {
+  while(!Knop.isPressed()){
     delay(1);
   }
   Lijn.calibrate_test();
+  accel.sensorenInitialiseren();
+  magnet.init();
 }
 
 
@@ -22,4 +27,13 @@ void loop() {
     tijd = millis();
     Lijn.print_waardes();
   }
+  if(accel.brugKantelingDetecteren()){
+    motor.rechteLijn();
+  }
+  else {
+    motor.stop();
+  }
+  magnet.geefWaardes();
+  motor.test();
 }
+

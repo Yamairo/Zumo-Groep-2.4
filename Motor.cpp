@@ -9,14 +9,15 @@ void Motor::rechteLijn(){
   Motor.setRightSpeed(200); // set right motor speed to 200 (out of 400)
 }
 
-void Motor::stop(){
-  Motor.setLeftSpeed(0); // stop left motor
-  Motor.setRightSpeed(0); // stop right motor
-}
-
 void Motor::zetSnelheid(int snelheidRechts, int snelheidLinks){
   Motor.setLeftSpeed(snelheidLinks);
   Motor.setRightSpeed(snelheidRechts);
+}
+
+
+void Motor::stop(){
+  Motor.setLeftSpeed(0); // stop left motor
+  Motor.setRightSpeed(0); // stop right motor
 }
 
 void Motor::test() {

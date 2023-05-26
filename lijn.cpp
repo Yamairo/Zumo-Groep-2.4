@@ -14,7 +14,7 @@ void lijn::calibrate_test() {
   // De robot draait heen en weer om de sensor een goede maximale en minimale waarde te geven
   // Daarna wordt de sensor gekalibreerd
 
-  delay(1000);
+  delay(100);
   for (uint16_t i = 0; i < 120; i++) {
     if (i > 30 && i <= 90) {
       //motor.zetSnelheid(-200, 200);
@@ -54,3 +54,4 @@ void lijn::print_waardes() {
   Serial.print("SR: ");
   Serial.println(lineSensorValues[2]);
 }
+

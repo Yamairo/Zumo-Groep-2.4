@@ -8,8 +8,8 @@ class Magnetometer {
   public:
     magnet();
     void geefWaardes();
-    void init();
     bool check();
+    void init();
   private:
     Zumo32U4IMU imu;  
     int x0;
