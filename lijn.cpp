@@ -2,40 +2,38 @@
 #include <Zumo32U4.h>
 
 lijn::lijn() {
-  lineSensors.initThreeSensors(); // Initaliseer de klasse
- // delay(1000);
+  lineSensors.initThreeSensors();  // Initaliseer de klasse
+                                   // delay(1000);
   //calibrate_test();
 }
 
 lijn::~lijn() {
-
 }
 
 void lijn::calibrate_test() {
-  // Wait 1 second and then begin automatic sensor calibration
-  // by rotating in place to sweep the sensors over the line
-  
-  //delay(1000);
-  for (uint16_t i = 0; i < 120; i++)
-  {
-    if (i > 30 && i <= 90)
-    {
+  // De robot draait heen en weer om de sensor een goede maximale en minimale waarde te geven
+  // Daarna wordt de sensor gekalibreerd
+
+  delay(1000);
+  for (uint16_t i = 0; i < 120; i++) {
+    if (i > 30 && i <= 90) {
+      //motor.zetSnelheid(-200, 200);
       motors.setSpeeds(-200, 200);
-    }
-    else
-    {
-      motors.setSpeeds(200, -200);
+    } else {
+      //motors.setSpeeds(200, -200);
+      motor.zetSnelheid(200, -200);
     }
     Serial.println("Kaliberen!");
     lineSensors.calibrate(QTR_EMITTERS_ON);
   }
-  motors.setSpeeds(0, 0);
-
+  motor.zetSnelheid(0, 0);
+  //motors.setSpeeds(0, 0);
 }
 
 // Lees de waardes uit van de sensoren.
 // De waardes worden in lineSensorValues gezet en teruggegeven.
-int lijn::lees_waarde() {  motors.setSpeeds(0, 0);
+int lijn::lees_waarde() {
+  motors.setSpeeds(0, 0);
 
   //lineSensors.read(lineSensorValues, QTR_EMITTERS_ON);
   lineSensors.readCalibrated(lineSensorValues, QTR_EMITTERS_ON);

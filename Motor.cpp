@@ -14,6 +14,11 @@ void Motor::stop(){
   Motor.setRightSpeed(0); // stop right motor
 }
 
+void Motor::zetSnelheid(int snelheidRechts, int snelheidLinks){
+  Motor.setLeftSpeed(snelheidLinks);
+  Motor.setRightSpeed(snelheidRechts);
+}
+
 void Motor::test() {
   buttonPress = Knop.getSingleDebouncedPress();
 
