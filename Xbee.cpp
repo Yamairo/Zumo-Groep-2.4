@@ -21,7 +21,7 @@ void XBee::begin(int baud) {
 }
 
 /*!stuurt data naar de Xbee*/
-void XBee::send(String data) {
+void XBee::send(char data) {
     Serial1.println(data);
 }
 
