@@ -1,13 +1,13 @@
+#include "HardwareSerial.h"
 #include "WString.h"
 #include "Xbee.h"
 #include <Wire.h>
-#include <Zumo32U4Motors.h>
-//#include <SoftwareSerial.h>
+#include <SoftwareSerial.h>
 
+SoftwareSerial xbee(2, 3);
 
 using namespace std;
 /*!cpp file*/
-SoftwareSerial xbee(2, 3);
 
 /*!constructor*/
 XBee::XBee() {}
@@ -22,48 +22,16 @@ void XBee::begin(int baud) {
 
 /*!stuurt data naar de Xbee*/
 void XBee::send(String data) {
-    xbee.println(data);
+    Serial1.println(data);
 }
 
-String XBee::receive(){
-  String data = "";
-  while(xbee.available()){
-    char c = xbee.read();
-    data += c;
+char XBee::receive(){
+  char inkomend = 0;
+  if(Serial1.available()>0){
+    inkomend = Serial1.read();
+    Serial1.println(inkomend);
+    
   }
-  return data;
+  return inkomend;
 }
 
-void XBee::startMotorsOnKeyPress(Zumo32U4Motors motors) {
-
-  
-  
-    while (true) {
-        if (xbee.available()) {
-            char c = xbee.read();
-            if (c == 'w') {
-                /*Rechtdoor*/
-                motors.setLeftSpeed(200);
-                motors.setRightSpeed(200);
-            }
-            if (c == 's'){
-                /*acheruit*/
-                motors.setLeftSpeed(-200);
-                motors.setRightSpeed(-200);
-            }
-            if (c == 'a'){
-                /*zumo naar links*/
-                motors.setLeftSpeed(-100);
-                motors.setRightSpeed(100);
-            }
-            if (c == 'd'){
-                /*zumo naar rechts*/
-                motors.setLeftSpeed(100);
-                motors.setRightSpeed(-100);
-            }
-                
-                
-            
-        }
-    }
-}

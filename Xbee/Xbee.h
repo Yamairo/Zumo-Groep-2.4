@@ -1,4 +1,3 @@
-#include <Zumo32U4Motors.h>
 #ifndef XBEE_H
 #define XBEE_H
 using namespace std;
@@ -7,10 +6,15 @@ class XBee {
 public:
     XBee();
     ~XBee();
-    void begin(int b);
-    void send(String d);
-    String receive();
-    void startMotorsOnKeyPress(Zumo32U4Motors);
+    void begin(int);
+    void send(String);
+    char receive();
+    // void startMotorsOnKeyPress(Zumo32U4Motors);
+private:
+String data;
+int baud;
+char c;
 };
 
 #endif
+ 
