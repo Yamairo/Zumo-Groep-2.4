@@ -12,7 +12,7 @@ public:
     void init();
     void stop();
     void rechteLijn();
-    void zetSnelheid(int snelheidRechts, int snelheidLinks);
+    void zetSnelheid(int, int);
 private:
     const uint16_t motorspeed = 300;
     Zumo32U4Motors Motor;

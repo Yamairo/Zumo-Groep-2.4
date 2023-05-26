@@ -6,7 +6,7 @@
 #include <Zumo32U4Motors.h>
 #include "Motor.h"
 
-#pragma once 
+#pragma once
 
 class lijn
 {
@@ -21,7 +21,7 @@ class lijn
     void print_waardes();
     int lineSensorValues[3];
     void calibrate_test();
-    
+
 
 };
 #endif

@@ -1,10 +1,12 @@
-#include <Wire.h>
-#include <Zumo32U4.h>
-#include <Zumo32U4LineSensors.h>
+#include "Motor.h"
+#include "Accelerometer.h"
+#include "Magnetometer.h"
 #include "lijn.h"
 #include "XBee.h"
 
-
+Accelerometer accel;
+Motor motor;
+Magnetometer magnet;
 lijn Lijn;
 XBee xbee1;
 Zumo32U4Motors motors;
@@ -39,6 +41,11 @@ void executeCommand(char command) {
 void setup() {
   Serial.begin(9600);
   Serial1.begin(9600); // Initialize Serial1 for communication with XBee
+Zumo32U4ButtonB Knop;
+
+bool buttonPress = Knop.getSingleDebouncedPress();
+void setup() {
+  Serial.begin(9600);
   while(!Knop.isPressed()){
     delay(1);
   }
@@ -48,6 +55,8 @@ void setup() {
   TCCR4A = 0;
   TCCR4B = 1 << CS41;
   TCCR4D = 1 << WGM40;
+  accel.sensorenInitialiseren();
+  magnet.init();
 }
 
 
@@ -75,8 +84,15 @@ void loop() {
       Serial.print("2");
     }
   }
+  if(accel.brugKantelingDetecteren()){
+    motor.rechteLijn();
+  }
+  else {
+    motor.stop();
+  }
+  magnet.geefWaardes();
+  motor.test();
 }
-
 
 void driveForward() {
   motors.setSpeeds(MOTOR_SPEED, MOTOR_SPEED);
@@ -97,5 +113,4 @@ void turnRight() {
 void stopMotors() {
   motors.setSpeeds(0, 0);
 }
-
 
