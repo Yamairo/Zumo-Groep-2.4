@@ -1,41 +1,14 @@
-/*!
- * \file Zumo-Groep-2.4.ino
- * \brief Bevat de code voor het besturen van de zumo
- * \author [Yamairo Martinus]
- * \date [30-5-2023]
- */
-
-/*!
- * \mainpage Accelerometer Klasse Documentatie
- *
- * \section intro_sec Inleiding
- *
- * Deze documentatie beschrijft de klasses die gebruikt zijn voor het besturen van de zumo.
- *
- * \section installatie_sec Installatie
- *
- * Deze klas is bedacht op bassis van de Zumo libraries daarom is het van belang dat je de volgende libraries hebt:
- * - Wire.h
- * - Zumo32U4.h
- * - 
- *
- * \section gebruik_sec Gebruik
- *
- * Om deze code te gebruiken zal je een zumo en een xbee nodig hebben. Daarna zal deze code geupload moeten worden op de zumo.
- * Als dit is gedaan zal je moeten wisselen naar de port van de xbee om de zumo te besturen via de serial input.
- *
- * Voor meer gedetailleerde informatie over de functies van de klassen, zie de documentatie van de individuele functies.
- */
 #include "Motor.h"
 #include "Accelerometer.h"
 #include "Magnetometer.h"
 #include "lijn.h"
 #include "XBee.h"
+
 // Hieronder volgen alle klassen die nodig zijn voor het besturen van de zumo
 Accelerometer accel;
 Motor motor;
 Magnetometer magnet;
-lijn Lijn;
+Lijn Lijn;
 XBee xbee1;
 Zumo32U4Motors motors;
 Zumo32U4ButtonB Knop;

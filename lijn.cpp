@@ -1,16 +1,16 @@
 #include "lijn.h"
 #include <Zumo32U4.h>
 
-lijn::lijn() {
+Lijn::Lijn() {
   lineSensors.initThreeSensors();  // Initaliseer de klasse
                                    // delay(1000);
   //calibrate_test();
 }
 
-lijn::~lijn() {
+Lijn::~Lijn() {
 }
 
-void lijn::calibrate_test() {
+void Lijn::calibrate_test() {
   // De robot draait heen en weer om de sensor een goede maximale en minimale waarde te geven
   // Daarna wordt de sensor gekalibreerd
 
@@ -32,7 +32,7 @@ void lijn::calibrate_test() {
 
 // Lees de waardes uit van de sensoren.
 // De waardes worden in lineSensorValues gezet en teruggegeven.
-int lijn::lees_waarde() {
+int Lijn::lees_waarde() {
   motors.setSpeeds(0, 0);
 
   //lineSensors.read(lineSensorValues, QTR_EMITTERS_ON);
@@ -43,7 +43,7 @@ int lijn::lees_waarde() {
 
 
 // Dit is een debug/test dingetje, niet voor gebruik in het uitendelijke ontwerp
-void lijn::print_waardes() {
+void Lijn::print_waardes() {
   lineSensors.readCalibrated(lineSensorValues, QTR_EMITTERS_ON);
   Serial.print("SL: ");
   Serial.print(lineSensorValues[0]);

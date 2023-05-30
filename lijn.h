@@ -8,15 +8,15 @@
 
 #pragma once
 
-class lijn
+class Lijn
 {
   private:
     Zumo32U4LineSensors lineSensors;
     Zumo32U4Motors motors;
     Motor motor;
   public:
-    lijn();
-    ~lijn();
+    Lijn();
+    ~Lijn();
     int lees_waarde();
     void print_waardes();
     int lineSensorValues[3];
