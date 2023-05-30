@@ -12,6 +12,11 @@ public:
     void init();
     void stop();
     void rechteLijn();
+    void rijVooruit();
+    void rijAchteruit();
+    void draaiLinks();
+    void draaiRechts();
+    void stopMotors();
     void zetSnelheid(int, int);
 private:
     const uint16_t motorspeed = 300;

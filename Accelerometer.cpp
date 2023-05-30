@@ -1,33 +1,3 @@
-#include "USBAPI.h"
-#include "WString.h"
-/*!
- * \file Accelerometer.cpp
- * \brief Bevat de implementatie van de functies van de klas Accelerometer.
- * \author [Yamairo Martinus]
- * \date [5-5-2023]
- */
-
-/*!
- * \mainpage Accelerometer Klasse Documentatie
- *
- * \section intro_sec Inleiding
- *
- * Deze documentatie beschrijft functionaliteit van de C++ klasse Accelerometer. Deze klasse bevat functies om de sensoren van de Zumo-robot te initialiseren en het verschil in acceleratie te meten om de snelheid te bepalen. De klasse bevat ook een functie om een melding te geven als de snelheid plots naar 0 gaat, wat kan duiden op een botsing of crash.
- *
- * \section installatie_sec Installatie
- *
- * Deze klas is bedacht op bassis van de Zumo libraries daarom is het van belang dat je de volgende libraries hebt:
- * - Wire.h
- * - Zumo32U4.h
- *
- * \section gebruik_sec Gebruik
- *
- * Om deze klasse te gebruiken, moet u eerst een object van de klasse aanmaken.
- *
- * Voor meer gedetailleerde informatie over de functies van de klasse, zie de documentatie van de individuele functies.
- */
-
-
 #include "Accelerometer.h"
 
 Accelerometer::Accelerometer() {}

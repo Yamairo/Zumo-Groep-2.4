@@ -1,4 +1,3 @@
-#include <stdint.h>
 #ifndef ACCELEROMETER_H
 #define ACCELEROMETER_H
 

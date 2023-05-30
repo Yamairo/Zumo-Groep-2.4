@@ -32,3 +32,23 @@ void Motor::test() {
   delay(100); // pause for 1 second
   }
 }
+
+void Motor::rijVooruit() {
+  Motor.setSpeeds(motorspeed, motorspeed);
+}
+
+void Motor::rijAchteruit() {
+  Motor.setSpeeds(-motorspeed, -motorspeed);
+}
+
+void Motor::draaiLinks() {
+  Motor.setSpeeds(-motorspeed, motorspeed);
+}
+
+void Motor::draaiRechts() {
+  Motor.setSpeeds(motorspeed, -motorspeed);
+}
+
+void Motor::stopMotors() {
+  Motor.setSpeeds(0, 0);
+}
