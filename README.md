@@ -21,9 +21,9 @@ Voor meer gedetailleerde informatie over de functies van de klassen, zie de docu
 
 De volgende klassen worden gebruikt:
 
-- ![Accelerometer.h](Accelerometer)
-- ![Magnetometer.h](Magnetometer)
-- ![Motor.h](Motor)
-- ![Lijn.h](Lijn)
-- ![Prox.h](Prox)
-- ![XBee.h](XBee)
+- ![https://github.com/Yamairo/Zumo-Groep-2.4/blob/main/Accelerometer.h](Accelerometer)
+- ![https://github.com/Yamairo/Zumo-Groep-2.4/blob/main/Magnetometer.h](Magnetometer)
+- ![https://github.com/Yamairo/Zumo-Groep-2.4/blob/main/Motor.h](Motor)
+- ![https://github.com/Yamairo/Zumo-Groep-2.4/blob/main/Lijn.h](Lijn)
+- ![https://github.com/Yamairo/Zumo-Groep-2.4/blob/main/Prox.h](Prox)
+- ![https://github.com/Yamairo/Zumo-Groep-2.4/blob/main/XBee.h](XBee)
