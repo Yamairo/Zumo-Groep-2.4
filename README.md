@@ -21,9 +21,9 @@ Voor meer gedetailleerde informatie over de functies van de klassen, zie de docu
 
 De volgende klassen worden gebruikt:
 
-- ![Accelerometer](Accelerometer.h)
-- ![Magnetometer](Magnetometer.h)
-- ![Motor](Motor.h)
-- ![Lijn](Lijn.h)
-- ![Prox](Prox.h)
-- ![XBee](XBee.h)
+- [Accelerometer](Accelerometer.h)
+- [Magnetometer](Magnetometer.h)
+- [Motor](Motor.h)
+- [Lijn](Lijn.h)
+- [Prox](Prox.h)
+- [XBee](XBee.h)
