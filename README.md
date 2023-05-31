@@ -2,23 +2,6 @@
 
 ## Inleiding
 
-Deze documentatie beschrijft de klassen die gebruikt zijn voor het besturen van de Zumo.
-
-## Installatie
-
-Deze klas is gebaseerd op de Zumo libraries, daarom is het belangrijk om de volgende bibliotheken te installeren:
-
-- Wire.h
-- Zumo32U4.h
-# Zumo-Groep-2.4.ino
-
-Bevat de code voor het besturen van de zumo.
-
-**Auteur:** Yamairo Martinus  
-**Datum:** 30-5-2023
-
-## Inleiding
-
 Deze documentatie beschrijft de klassen die gebruikt zijn voor het besturen van de zumo.
 
 ## Installatie
