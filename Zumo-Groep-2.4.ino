@@ -2,12 +2,8 @@
 #include "Accelerometer.h"
 #include "Magnetometer.h"
 #include "lijn.h"
-<<<<<<< HEAD
 #include "XBee.h"
 #include "Handmatig.h"
-=======
-#include "Xbee.h"
->>>>>>> 8e95bd529a23a7e6f6fed9239cd76adb2bc4228f
 
 // Hieronder volgen alle klassen die nodig zijn voor het besturen van de zumo
 Accelerometer accel;
