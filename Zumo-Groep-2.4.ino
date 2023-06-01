@@ -2,8 +2,12 @@
 #include "Accelerometer.h"
 #include "Magnetometer.h"
 #include "lijn.h"
+<<<<<<< HEAD
 #include "XBee.h"
 #include "Handmatig.h"
+=======
+#include "Xbee.h"
+>>>>>>> 8e95bd529a23a7e6f6fed9239cd76adb2bc4228f
 
 // Hieronder volgen alle klassen die nodig zijn voor het besturen van de zumo
 Accelerometer accel;
@@ -21,34 +25,6 @@ Zumo32U4ButtonC Handmatig;
 bool automatisch = false;
 
 bool buttonPress = Knop.getSingleDebouncedPress();
-// void executeCommand(char command) {
-//   /*!
-//    * \brief Geeft de besturings commandos door.
-//    *
-//    * Door het sturen van "W", "A", "S", "D", "X" kan je de zumo besturen
-//    * hiebij is W vooruit; A linksom draaien; S achteruit rijden; D rechtsom draaien;
-//    * X voor het stoppen van de motoren.
-//    */
-//   switch (command) {
-//     case 'W':
-//       motor.rijVooruit();
-//       break;
-//     case 'A':
-//       motor.draaiLinks();
-//       break;
-//     case 'S':
-//       motor.rijAchteruit();
-//       break;
-//     case 'D':
-//       motor.draaiRechts();
-//       break;
-//     case 'X':
-//       motor.stopMotors();
-//       break;
-//     default:
-//       break;
-//   }
-// }
 
 void setup() {
   Serial.begin(9600);
@@ -68,7 +44,7 @@ void loop() {
   }
   else if (Automaat.isPressed()) {
     automatisch = true;
-  }
+  }gti 
   else if(!automatisch){
     // Code voor handmatige besturing 
       if (Serial1.available()) {
