@@ -2,7 +2,7 @@
 #include "Accelerometer.h"
 #include "Magnetometer.h"
 #include "lijn.h"
-#include "XBee.h"
+#include "Xbee.h"
 
 // Hieronder volgen alle klassen die nodig zijn voor het besturen van de zumo
 Accelerometer accel;
@@ -66,7 +66,7 @@ void loop() {
   }
   else if (Automaat.isPressed()) {
     automatisch = true;
-  }
+  }gti 
   else if(!automatisch){
     // Code voor handmatige besturing 
       if (Serial1.available()) {

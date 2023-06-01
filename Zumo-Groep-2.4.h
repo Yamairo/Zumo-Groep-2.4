@@ -7,7 +7,7 @@
 #include "Magnetometer.h"
 #include "Motor.h"
 #include "lijn.h"
-#include "XBee.h"
+#include "Xbee.h"
 
 class ZumoGroep2Punt4{
 public:
