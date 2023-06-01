@@ -19,7 +19,7 @@ public:
     void stopMotors();
     void zetSnelheid(int, int);
 private:
-    const uint16_t motorspeed = 300;
+    const uint16_t motorspeed = 200;
     Zumo32U4Motors Motor;
     Zumo32U4ButtonA Knop;
     bool buttonPress;

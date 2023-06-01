@@ -3,9 +3,11 @@
 #include "Magnetometer.h"
 #include "lijn.h"
 #include "XBee.h"
+#include "Handmatig.h"
 
 // Hieronder volgen alle klassen die nodig zijn voor het besturen van de zumo
 Accelerometer accel;
+Handmatig hand;
 Motor motor;
 Magnetometer magnet;
 Lijn Lijn;
@@ -19,34 +21,34 @@ Zumo32U4ButtonC Handmatig;
 bool automatisch = false;
 
 bool buttonPress = Knop.getSingleDebouncedPress();
-void executeCommand(char command) {
-  /*!
-   * \brief Geeft de besturings commandos door.
-   *
-   * Door het sturen van "W", "A", "S", "D", "X" kan je de zumo besturen
-   * hiebij is W vooruit; A linksom draaien; S achteruit rijden; D rechtsom draaien;
-   * X voor het stoppen van de motoren.
-   */
-  switch (command) {
-    case 'W':
-      motor.rijVooruit();
-      break;
-    case 'A':
-      motor.draaiLinks();
-      break;
-    case 'S':
-      motor.rijAchteruit();
-      break;
-    case 'D':
-      motor.draaiRechts();
-      break;
-    case 'X':
-      motor.stopMotors();
-      break;
-    default:
-      break;
-  }
-}
+// void executeCommand(char command) {
+//   /*!
+//    * \brief Geeft de besturings commandos door.
+//    *
+//    * Door het sturen van "W", "A", "S", "D", "X" kan je de zumo besturen
+//    * hiebij is W vooruit; A linksom draaien; S achteruit rijden; D rechtsom draaien;
+//    * X voor het stoppen van de motoren.
+//    */
+//   switch (command) {
+//     case 'W':
+//       motor.rijVooruit();
+//       break;
+//     case 'A':
+//       motor.draaiLinks();
+//       break;
+//     case 'S':
+//       motor.rijAchteruit();
+//       break;
+//     case 'D':
+//       motor.draaiRechts();
+//       break;
+//     case 'X':
+//       motor.stopMotors();
+//       break;
+//     default:
+//       break;
+//   }
+// }
 
 void setup() {
   Serial.begin(9600);
@@ -71,7 +73,7 @@ void loop() {
     // Code voor handmatige besturing 
       if (Serial1.available()) {
       char command = xbee1.receive();
-      executeCommand(command);
+      hand.HandmatigeBesturing(command);
       Serial.print("1");
     } 
   }

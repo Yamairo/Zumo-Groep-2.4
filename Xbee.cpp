@@ -2,9 +2,7 @@
 #include "WString.h"
 #include "Xbee.h"
 #include <Wire.h>
-// #include <SoftwareSerial.h>
 
-// SoftwareSerial xbee(2, 3);
 
 using namespace std;
 /*!cpp file*/
