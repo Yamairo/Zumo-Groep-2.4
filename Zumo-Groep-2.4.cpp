@@ -33,6 +33,7 @@
  * - Prox
  * - XBee
  */
+#include "Zumo-Groep-2.4.h"
 
 ZumoGroep2Punt4::ZumoGroep2Punt4(){
   // Deze boolean wordt gebruikt om de zumo te wissel tussen handmatige en automatische besturing
@@ -40,7 +41,37 @@ ZumoGroep2Punt4::ZumoGroep2Punt4(){
   bool buttonPress = Knop.getSingleDebouncedPress();
 }
 
-ZumoGroep2Punt4::init(){
+void ZumoGroep2Punt4::executeCommand(char command) {
+  /*!
+   * \brief Geeft de besturings commandos door.
+   *
+   * Door het sturen van "W", "A", "S", "D", "X" kan je de zumo besturen
+   * hiebij is W vooruit; A linksom draaien; S achteruit rijden; D rechtsom draaien;
+   * X voor het stoppen van de motoren.
+   */
+  switch (command) {
+    case 'W':
+      motor.rijVooruit();
+      break;
+    case 'A':
+      motor.draaiLinks();
+      break;
+    case 'S':
+      motor.rijAchteruit();
+      break;
+    case 'D':
+      motor.draaiRechts();
+      break;
+    case 'X':
+      motor.stopMotors();
+      break;
+    default:
+      break;
+  }
+}
+
+
+void ZumoGroep2Punt4::init(){
   Serial.begin(9600);
   Serial1.begin(9600); // Initialize Serial1 for communication with XBee
   while(!Knop.isPressed()){
@@ -51,7 +82,7 @@ ZumoGroep2Punt4::init(){
   magnet.init();
 }
 
-ZumoGroep2Punt4::wisselBesturingsmodus(){
+void ZumoGroep2Punt4::wisselBesturingsmodus(){
   if(Handmatig.isPressed()){
     automatisch = false;
   }

@@ -11,8 +11,10 @@
 
 class ZumoGroep2Punt4{
 public:
+  ZumoGroep2Punt4();
   void init();
   void wisselBesturingsmodus();
+  void executeCommand(char command);
 private:
   Accelerometer accel;
   Motor motor;
@@ -25,6 +27,7 @@ private:
   Zumo32U4ButtonC Handmatig;
   bool automatisch = false;
   bool buttonPress;
+  char command;
 };
 
 #endif
