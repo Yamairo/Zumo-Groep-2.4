@@ -1,36 +1,15 @@
-#define PROX_h
-
+#include <Wire.h>
 #include <Zumo32U4.h>
-#include <string.h>
 
-class Prox
+class ProximitySensors
 {
-    {
-public:
-    //Prox(); // declare constructor
-    //int lees_prox(bool calibreer);
-    //int ProximitySensorValues[3];
-    bool readBasic(uint8_t sensorNumber);
+  public:
+    ProximitySensors();
     void read();
-    bool readBasicLeft()
-     {
-         return readBasic(findIndexForPin(SENSOR_LEFT));
-     }
+    uint16_t getLeft() const;
+    uint16_t getRight() const;
+    uint16_t getMiddle() const;
 
-     bool readBasicFront()
-     {
-         return readBasic(findIndexForPin(SENSOR_FRONT));
-     }
-
-     bool readBasicRight()
-     {
-         return readBasic(findIndexForPin(SENSOR_RIGHT));
-     }
-
-
-
-private:
-        Zumo32U4ProximitySensors proximitySensors;
-    } 
+  private:
+    Zumo32U4ProximitySensors sensors;
 };
-
