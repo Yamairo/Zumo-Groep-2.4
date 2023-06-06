@@ -4,6 +4,7 @@
 #include "lijn.h"
 #include "XBee.h"
 #include "Handmatig.h"
+#include "prox.h"
 
 // Hieronder volgen alle klassen die nodig zijn voor het besturen van de zumo
 Accelerometer accel;
@@ -12,6 +13,7 @@ Motor motor;
 Magnetometer magnet;
 Lijn Lijn;
 XBee xbee1;
+ProximitySensors sensors;
 Zumo32U4Motors motors;
 Zumo32U4ButtonB Knop;
 Zumo32U4ButtonA Automaat;
@@ -40,7 +42,7 @@ void loop() {
   }
   else if (Automaat.isPressed()) {
     automatisch = true;
-  }gti 
+  } 
   else if(!automatisch){
     // Code voor handmatige besturing 
       if (Serial1.available()) {
@@ -67,8 +69,23 @@ void loop() {
       motor.stop();
       magnet.geefWaardes();
     }
-    motor.test();
-  }
+    sensors.read();
+    uint16_t i = sensors.getMiddle();
+    Serial.println(i);
+    
+    while (sensors.getMiddle() > 9) {
+      delay(100);
+      motor.stopMotors();
+      motor.rechteLijn();
+    }
+    
+    if (sensors.getLeft() > sensors.getRight()) {
+      motor.draaiLinks();
+    } else {
+      motor.draaiRechts();
+    }
+      motor.test();
+    }
 }
 
 
