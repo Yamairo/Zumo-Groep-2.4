@@ -1,27 +1,32 @@
 #include <Wire.h>
 #include <Zumo32U4.h>
 #include "prox.h"
+#include "Motor.h"
 
 ProximitySensors sensors;
+Motor motor;
 
-void setup()
-{
-  Serial.begin(9600);
+void setup() {
+  // put your setup code here, to run once:
+  Wire.begin();
+  sensors.read();
 }
 
-void loop()
-{
+void loop() {
+  // put your main code here, to run repeatedly:
   sensors.read();
-  uint16_t left = sensors.getLeft();
-  uint16_t right = sensors.getRight();
-  uint16_t middle = sensors.getMiddle();
-
-  Serial.print("Left: ");
-  Serial.print(left);
-  Serial.print(", Right: ");
-  Serial.print(right);
-  Serial.print(", Middle: ");
-  Serial.println(middle);
-
-  delay(100);
+  uint16_t i = sensors.getMiddle();
+  Serial.println(i);
+  
+  while (sensors.getMiddle() > 9) {
+    delay(100);
+    motor.stopMotors();
+    motor.rechteLijn();
+  }
+  
+  if (sensors.getLeft() > sensors.getRight()) {
+    motor.draaiLinks();
+  } else {
+    motor.draaiRechts();
+  }
 }
