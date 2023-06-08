@@ -52,3 +52,19 @@ void Motor::draaiRechts() {
 void Motor::stopMotors() {
   Motor.setSpeeds(0, 0);
 }
+
+void Motor::RechtsVooruit() {
+Motor.setSpeeds(motorspeed+200, motorspeed);
+}
+
+void Motor::RechtsAchteruit() {
+  Motor.setSpeeds(-motorspeed-200, -motorspeed);
+}
+
+void Motor::LinksVooruit() {
+  Motor.setSpeeds(motorspeed, motorspeed+200);
+}
+
+void Motor::LinksAchteruit() {
+  Motor.setSpeeds(-motorspeed, -motorspeed-200);
+}
