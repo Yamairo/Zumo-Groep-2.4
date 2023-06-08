@@ -30,6 +30,18 @@ void Handmatig::HandmatigeBesturing(char input) {
     case 'D':
       motor.draaiRechts();
       break;
+    case 'Q':
+      motor.LinksVooruit();
+      break;
+    case 'E':
+      motor.RechtsVooruit();
+      break;
+    case 'Z':
+      motor.LinksAchteruit();
+      break;
+    case 'C':
+      motor.RechtsAchteruit();
+      break;
     case 'X':
       motor.stopMotors();
       break;
