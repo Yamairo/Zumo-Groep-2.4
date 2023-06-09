@@ -64,7 +64,7 @@ int Lijn::check_kleur(int links, int midden, int rechts) {
   //lineSensors.readCalibrated(lineSensorValues, QTR_EMITTERS_ON);
   //lineSensors.read(lineSensorValues, QTR_EMITTERS_ON);
 
-/*
+  /*
 * De waardes die via de sensor binnenkomen zijn niet correct; 
 * Waarschijnlijk gaat het in de calibratie ergens fout
 * nu gewoon met vaste waardes proberen. Misschien werkt dat beter, en anders weet ik het ook niet meer. 
@@ -180,4 +180,76 @@ bool Lijn::is_binnen_bounds(int& val, int& bound) {
     min = 0;
   }
   return (val >= min) && (val <= max);
+}
+
+int Lijn::handmatig_kleuren() {
+  int links, midden, rechts;
+  links = 0;
+  midden = 0;
+  rechts = 0;
+  Lijn::lees_waarde();
+  if (lineSensorValues[0] >= 800 && lineSensorValues[0] <= 1500) {
+    links = 2;
+  } else if (lineSensorValues[0] >= 200 && lineSensorValues[0] <= 220) {
+    links = 3;
+  } else if (lineSensorValues[0] >= 260 && lineSensorValues[0] <= 280) {
+    links = 4;
+  } else {
+    links = 0;
+  }
+  if (lineSensorValues[1] >= 800 && lineSensorValues[1] <= 1500) {
+    midden = 2;
+  } else if (lineSensorValues[1] >= 110 && lineSensorValues[1] <= 130) {
+    midden = 1;
+  } else {
+    midden = 0;
+  }
+  if (lineSensorValues[2] >= 800 && lineSensorValues[2] <= 1500) {
+  } else if (lineSensorValues[2] >= 200 && lineSensorValues[2] <= 220) {
+    rechts = 3;
+  } else if (lineSensorValues[2] >= 260 && lineSensorValues[2] <= 280) {
+    rechts = 4;
+  } else {
+    rechts = 0;
+  }
+  return links, midden, rechts;
+}
+
+int Lijn::handmatig_kleuren_links() {
+  int links;
+  if (lineSensorValues[0] >= 800 && lineSensorValues[0] <= 1500) { // ZWART
+    links = 2;
+  } else if (lineSensorValues[0] >= 140 && lineSensorValues[0] <= 170) { // GRIJS
+    links = 3;
+  } else if (lineSensorValues[0] >= 290 && lineSensorValues[0] <= 330) { // BRUIN
+    links = 4;
+  } else {
+    links = 0;
+  }
+  return links;
+}
+
+int Lijn::handmatig_kleuren_midden() {
+  int midden;
+  if (lineSensorValues[1] >= 800 && lineSensorValues[1] <= 1500) { 
+    midden = 2;
+  } else if (lineSensorValues[1] >= 120 && lineSensorValues[1] <= 180) { // GROEN
+    midden = 1;
+  } else {
+    midden = 0;
+  }
+  return midden;
+}
+
+int Lijn::handmatig_kleuren_rechts() {
+  int rechts;
+  if (lineSensorValues[2] >= 800 && lineSensorValues[2] <= 1500) {
+    rechts = 2;
+  } else if (lineSensorValues[2] >= 130 && lineSensorValues[2] <= 170) {
+    rechts = 3;
+  } else if (lineSensorValues[2] >= 230 && lineSensorValues[2] <= 280) { // BRUIN
+    rechts = 4;
+  } else {
+    rechts = 0;
+  }
 }

@@ -6,24 +6,29 @@
 
 Lijn lijn;
 
-int kleur_links  = 999;
+int kleur_links = 999;
 int kleur_midden = 999;
 int kleur_rechts = 999;
 
 void setup() {
-//  Zumo32U4Motors motors;
+  //  Zumo32U4Motors motors;
   Serial.begin(9600);
   while (!Serial.available()) {
     delay(1);
   }
   lijn.calibrate_test();
-  lijn.kalibreer_kleuren();
+  //lijn.kalibreer_kleuren();
 }
 
 
 void loop() {
   delay(1000);
   lijn.print_waardes();
+
+  Serial.println(lijn.handmatig_kleuren_links());
+  Serial.println(lijn.handmatig_kleuren_midden());
+  Serial.println(lijn.handmatig_kleuren_rechts());
+/*
   kleur_links, kleur_midden, kleur_rechts = lijn.check_kleur(kleur_links, kleur_midden, kleur_rechts);
 
   Serial.print("L: ");
@@ -36,4 +41,5 @@ void loop() {
 
   Serial.print("R: ");
   Serial.println(kleur_rechts);
+  */
 }
