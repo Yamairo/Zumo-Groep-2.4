@@ -10,7 +10,6 @@
 
 class Lijn {
 private:
-  Zumo32U4LineSensors lineSensors;
   Zumo32U4Motors motors;
   Motor motor;
   int kalibratie_zwart[3];
@@ -38,6 +37,6 @@ public:
   int handmatig_kleuren_links();
   int handmatig_kleuren_midden();
   int handmatig_kleuren_rechts();
-
+  Zumo32U4LineSensors lineSensors;
 };
 #endif

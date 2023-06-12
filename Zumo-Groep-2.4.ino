@@ -1,49 +1,30 @@
-#include "Motor.h"
-#include "Accelerometer.h"
-#include "Magnetometer.h"
-#include "lijn.h"
-#include "XBee.h"
-#include "Handmatig.h"
-#include "prox.h"
-
-// Hieronder volgen alle klassen die nodig zijn voor het besturen van de zumo
-Accelerometer accel;
+#include "Automatisch.h"
+Automatisch automatisch;
 Handmatig hand;
-Motor motor;
-Magnetometer magnet;
-Lijn Lijn;
-XBee xbee1;
-ProximitySensors sensors;
-Zumo32U4Motors motors;
-Zumo32U4ButtonB Knop;
-Zumo32U4ButtonA Automaat;
-Zumo32U4ButtonC Handmatig;
-
 // Deze boolean wordt gebruikt om de zumo te wissel tussen handmatige en automatische besturing
-bool automatisch = false;
 
-bool buttonPress = Knop.getSingleDebouncedPress();
+bool automatische_modus = false;
+XBee xbee1;
+Zumo32U4ButtonA Automaat;
+Zumo32U4ButtonC KnopHandmatig;
+Zumo32U4LineSensors lineSensors;
 
 void setup() {
   Serial.begin(9600);
   Serial1.begin(9600); // Initialize Serial1 for communication with XBee
-  while(!Knop.isPressed()){
-    delay(1);
-  }
-  Lijn.calibrate_test();
-  accel.sensorenInitialiseren();
-  magnet.init();
+  automatisch.init();
+  automatisch.Lijn.calibrate_test();
 }
 
 
 void loop() {
-  if(Handmatig.isPressed()){
-    automatisch = false;
+  if(KnopHandmatig.isPressed()){
+    automatische_modus = false;
   }
   else if (Automaat.isPressed()) {
-    automatisch = true;
+    automatische_modus = true;
   } 
-  else if(!automatisch){
+  else if(!automatische_modus){
     // Code voor handmatige besturing 
       if (Serial1.available()) {
       char command = xbee1.receive();
@@ -51,41 +32,15 @@ void loop() {
       Serial.print("1");
     } 
   }
-  if(automatisch){
+  if(automatische_modus){
     // Code voor automatisch rijden
-    // De code hieronder is voor de lijnsensor waardes
-
-    // int tijd = 0;
-    // if ((millis() - tijd) >= 100) {
-    //   tijd = millis();
-    //   Lijn.print_waardes();
-    //   Serial.print("2");
-    // }
-
-    if(accel.brugKantelingDetecteren()){
-      motor.rechteLijn();
+    Serial1.println(automatisch.Lijn.lineSensorValues[1]);
+    Automatisch.brugAfrijden();
+    automatisch.volgLijn();
+    if(false){
+      automatisch.duwBlokje();
     }
-    else {
-      motor.stop();
-      magnet.geefWaardes();
-    }
-    sensors.read();
-    uint16_t i = sensors.getMiddle();
-    Serial.println(i);
-    
-    while (sensors.getMiddle() > 9) {
-      delay(100);
-      motor.stopMotors();
-      motor.rechteLijn();
-    }
-    
-    if (sensors.getLeft() > sensors.getRight()) {
-      motor.draaiLinks();
-    } else {
-      motor.draaiRechts();
-    }
-      motor.test();
-    }
+  } 
 }
 
 

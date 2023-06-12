@@ -7,7 +7,6 @@ public:
     Handmatig();
     ~Handmatig();
     void HandmatigeBesturing(char);
-
 private:
   Motor motor;
   char input;
