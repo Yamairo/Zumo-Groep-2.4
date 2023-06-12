@@ -36,13 +36,28 @@ void Automatisch::duwBlokje(){
   }
 }
 
-void Automatisch::volgLijn(){
+void Automatisch::vindLijn(){
   Lijn.lineSensors.readCalibrated(Lijn.lineSensorValues, QTR_EMITTERS_ON);
-  Serial1.println(Lijn.lineSensorValues[1]);
-  if (Lijn.lineSensorValues[1] > 600) {
-      motor.rechteLijn();
+  if (Lijn.lineSensorValues[1] > 500) {
+      motor.zetSnelheid(150, 150);
   }
-  if {
-    
+  else{
+    motor.stop();
   }
+}
+
+void Automatisch::volgLijn(){
+  vindLijn();
+  int16_t position = lineSensors.readLine(lineSensorValues);
+  int16_t error = position - 2000;
+  int16_t speedDifference = error / 4 + 6 * (error - lastError);
+  lastError = error;
+
+  int16_t leftSpeed = (int16_t)maxSpeed + speedDifference;
+  int16_t rightSpeed = (int16_t)maxSpeed - speedDifference;
+
+  leftSpeed = constrain(leftSpeed, 0, (int16_t)maxSpeed);
+  rightSpeed = constrain(rightSpeed, 0, (int16_t)maxSpeed);
+
+  motors.setSpeeds(leftSpeed, rightSpeed);
 }

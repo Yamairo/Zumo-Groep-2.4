@@ -17,6 +17,7 @@ class Automatisch {
     void init();
     void duwBlokje();
     void volgLijn();
+    void vindLijn();
     Lijn Lijn;
   private:
     Accelerometer accel;
@@ -27,6 +28,8 @@ class Automatisch {
     ProximitySensors sensors;
     Zumo32U4Motors motors;
     Zumo32U4ButtonB Knop;
+    int delay1 = 1000;
+    int delay2 = 1750;
     bool buttonPress = Knop.getSingleDebouncedPress();
 };
 

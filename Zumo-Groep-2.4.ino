@@ -34,8 +34,7 @@ void loop() {
   }
   if(automatische_modus){
     // Code voor automatisch rijden
-    Serial1.println(automatisch.Lijn.lineSensorValues[1]);
-    Automatisch.brugAfrijden();
+    automatisch.brugAfrijden();
     automatisch.volgLijn();
     if(false){
       automatisch.duwBlokje();
