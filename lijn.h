@@ -19,11 +19,6 @@ private:
   void wacht_op_bevestiging();
   bool is_binnen_bounds(int& val, int& bound);
 
-  const int GROEN = 1;
-  const int ZWART = 2;
-  const int GRIJS = 3;
-  const int BRUIN = 4;
-
 public:
   Lijn();
   ~Lijn();
@@ -38,5 +33,9 @@ public:
   int handmatig_kleuren_midden();
   int handmatig_kleuren_rechts();
   Zumo32U4LineSensors lineSensors;
+  const int GROEN = 1;
+  const int ZWART = 2;
+  const int GRIJS = 3;
+  const int BRUIN = 4;
 };
 #endif

@@ -30,6 +30,8 @@ class Automatisch {
     Zumo32U4ButtonB Knop;
     int delay1 = 1000;
     int delay2 = 1750;
+    const uint16_t maxSpeed = 250;
+    int16_t lastError = 0;
     bool buttonPress = Knop.getSingleDebouncedPress();
 };
 

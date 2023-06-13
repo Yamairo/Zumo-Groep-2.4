@@ -217,7 +217,8 @@ int Lijn::handmatig_kleuren() {
 
 int Lijn::handmatig_kleuren_links() {
   int links;
-  if (lineSensorValues[0] >= 800 && lineSensorValues[0] <= 1500) { // ZWART
+  Lijn::lees_waarde();
+  if (lineSensorValues[0] >= 500 && lineSensorValues[0] <= 1000) { // ZWART
     links = 2;
   } else if (lineSensorValues[0] >= 140 && lineSensorValues[0] <= 170) { // GRIJS
     links = 3;
@@ -231,7 +232,8 @@ int Lijn::handmatig_kleuren_links() {
 
 int Lijn::handmatig_kleuren_midden() {
   int midden;
-  if (lineSensorValues[1] >= 800 && lineSensorValues[1] <= 1500) { 
+  Lijn::lees_waarde();
+  if (lineSensorValues[1] >= 500 && lineSensorValues[1] <= 1000) { 
     midden = 2;
   } else if (lineSensorValues[1] >= 120 && lineSensorValues[1] <= 180) { // GROEN
     midden = 1;
@@ -243,7 +245,8 @@ int Lijn::handmatig_kleuren_midden() {
 
 int Lijn::handmatig_kleuren_rechts() {
   int rechts;
-  if (lineSensorValues[2] >= 800 && lineSensorValues[2] <= 1500) {
+  Lijn::lees_waarde();
+  if (lineSensorValues[2] >= 500 && lineSensorValues[2] <= 1000) {
     rechts = 2;
   } else if (lineSensorValues[2] >= 130 && lineSensorValues[2] <= 170) {
     rechts = 3;
