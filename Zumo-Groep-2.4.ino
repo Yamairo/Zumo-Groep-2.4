@@ -35,10 +35,8 @@ void loop() {
   if(automatische_modus){
     // Code voor automatisch rijden
     // automatisch.brugAfrijden();
-    automatisch.volgLijn();
-    if(false){
-      automatisch.duwBlokje();
-    }
+    // automatisch.sturenMetGrijzeLijn();
+    automatisch.duwBlokje();
   } 
 }
 

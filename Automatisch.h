@@ -16,7 +16,8 @@ class Automatisch {
     void brugAfrijden();
     void init();
     void duwBlokje();
-    void volgLijn();
+    void volgLijn(int, int, int, int);
+    void sturenMetGrijzeLijn();
     void vindLijn();
     Lijn Lijn;
   private:
@@ -28,10 +29,11 @@ class Automatisch {
     ProximitySensors sensors;
     Zumo32U4Motors motors;
     Zumo32U4ButtonB Knop;
-    int delay1 = 1000;
-    int delay2 = 1750;
-    const uint16_t maxSpeed = 250;
     int16_t lastError = 0;
+    int errorOffset;
+    int errorProportioneleConstante;
+    int errorAfgeleideConstante;
+    int maxSpeed;
     bool buttonPress = Knop.getSingleDebouncedPress();
 };
 
