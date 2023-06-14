@@ -30,7 +30,7 @@
  * - Magnetometer
  * - Motor
  * - Lijn 
- * - Prox
+ * - ProximitySensors
  * - XBee
  */
 #include "Zumo-Groep-2.4.h"

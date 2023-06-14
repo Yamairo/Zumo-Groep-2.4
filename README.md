@@ -25,5 +25,5 @@ De volgende klassen worden gebruikt:
 - [Magnetometer](Magnetometer.h)
 - [Motor](Motor.h)
 - [Lijn](lijn.h)
-- [Prox](prox.h)
+- [prox](prox.h)
 - [XBee](Xbee.h)
